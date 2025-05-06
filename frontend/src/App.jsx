@@ -6,6 +6,16 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    axios.get('http://localhost:3000')
+    .then(res => {
+      console.log('Response from backend'. res.data );
+    })
+  })
+  .catch(err => {
+    console.error('Error connecting to backend:', err);
+  });
+
   return (
     <>
       <div>
@@ -32,4 +42,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
